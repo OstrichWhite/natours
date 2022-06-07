@@ -9,6 +9,8 @@ res.status(204)  //No Content //for Delete
 ${__dirname}
 
 app.use(express.json()); //used to parse the incoming requests with JSON payloads
+app.use(middlwarefunction); // (req,res,next)=>{...}
+morgan middleware // used for log http requests
 
 /api/v1/tours
 /api/v1/tours/:id
