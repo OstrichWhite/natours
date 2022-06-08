@@ -6,15 +6,18 @@ res.status(200).json({status: 'success', results: tours.length, data: {...}})
 res.status(201)  //created
 res.status(204)  //No Content //for Delete
 res.status(500)  //Internal Server Error
+res.status(400)  //Bad Request
 
 express.json();
 express.Router()
+express.static('root folder path for static filess')
 
 ${__dirname}
 
 app.use(express.json()); //used to parse the incoming requests with JSON payloads
-app.use(middlwarefunction); // (req,res,next)=>{...}
+app.use(middlwarefunction); // (req,res,next)=>{...} //(req,res,next,val)=>{...}
 morgan middleware // used for log http requests
+middleware chaining
 
 /api/v1/tours
 /api/v1/tours/:id
@@ -24,3 +27,8 @@ req.body;
 req.params
 
 Object.assign({ id: newId }, req.body);
+
+app.get('env') //default env in express is development
+process.env   //environment variable (global) for node
+config.env //file for env variables
+
