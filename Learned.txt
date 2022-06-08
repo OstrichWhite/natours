@@ -5,6 +5,10 @@ res.status(200).send();
 res.status(200).json({status: 'success', results: tours.length, data: {...}})
 res.status(201)  //created
 res.status(204)  //No Content //for Delete
+res.status(500)  //Internal Server Error
+
+express.json();
+express.Router()
 
 ${__dirname}
 
