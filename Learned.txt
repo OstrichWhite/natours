@@ -32,3 +32,14 @@ app.get('env') //default env in express is development
 process.env   //environment variable (global) for node
 config.env //file for env variables
 
+const newTour = new Tour();
+newTour.save();
+Tour
+    .create({document data object});
+    .find();
+    .findOne({_id: id_data})
+    .findById({id of document});
+    .findByIdAndUpdate({id of document},{updated body of document});
+    .findByIdAndDelete({id of document});
+
+process.argv
