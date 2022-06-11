@@ -1,5 +1,6 @@
 JSON.parse();
 JSON.stringify();
+res.json();
 
 res.status(200).send();
 res.status(200).json({status: 'success', results: tours.length, data: {...}})
@@ -24,7 +25,8 @@ middleware chaining
 /api/v1/tours/:id/:number?
 
 req.body;
-req.params
+req.params;
+req.query;
 
 Object.assign({ id: newId }, req.body);
 
@@ -37,9 +39,11 @@ newTour.save();
 Tour
     .create({document data object});
     .find();
+    .find().where().equals().where().lte();
     .findOne({_id: id_data})
     .findById({id of document});
     .findByIdAndUpdate({id of document},{updated body of document});
     .findByIdAndDelete({id of document});
 
 process.argv
+// eslint-disable-next-line no-console
