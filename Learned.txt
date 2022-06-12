@@ -9,30 +9,34 @@ res.status(204)  //No Content //for Delete
 res.status(500)  //Internal Server Error
 res.status(400)  //Bad Request
 
+req.body;
+req.params;
+req.query;
+
+/api/v1/tours
+/api/v1/tours/:id
+/api/v1/tours/:id/:number?
+
 express.json();
-express.Router()
+express.Router() / .route('/').get().post().patch().delete()
 express.static('root folder path for static filess')
 
-${__dirname}
+${__dirname}, ${__filename}
 
 app.use(express.json()); //used to parse the incoming requests with JSON payloads
 app.use(middlwarefunction); // (req,res,next)=>{...} //(req,res,next,val)=>{...}
 morgan middleware // used for log http requests
 middleware chaining
 
-/api/v1/tours
-/api/v1/tours/:id
-/api/v1/tours/:id/:number?
-
-req.body;
-req.params;
-req.query;
-
 Object.assign({ id: newId }, req.body);
+
+.replace()
+.split()
+.join()
 
 app.get('env') //default env in express is development
 process.env   //environment variable (global) for node
-config.env //file for env variables
+config.env //file for env variables /dotenv.config({ path: './config.env' });
 
 const newTour = new Tour();
 newTour.save();
@@ -44,6 +48,44 @@ Tour
     .findById({id of document});
     .findByIdAndUpdate({id of document},{updated body of document});
     .findByIdAndDelete({id of document});
+
+new mongoose.Schema({ field|property:{
+    type: Date
+    required: [true, message] 
+    unique: 
+    default: Date.now()
+    select:
+    trim:
+}},{
+    toJSON: {virtuals: true}
+    toObject: {virtuals: true}
+})
+schemaObj.virtual('derivedProperty').get(func())
+schemaObj.pre('event',func())  //event<->hooks
+schemaObj.post('event',func())
+
+mongoose-query
+    .sort()
+    .select()
+    .skip()
+    .limit()
+
+mongoose-model 
+    .aggregate([  
+        //$sum: 1, $avg, $min, $max, $gte, $gt, $lte, $lt, $month, $push  /'$docProperty'
+        { $match: {} },
+        { $group: { _id: {} | null } },
+        { $sort: { 1 | -1 } },
+        { $unwind: {} },
+        { $addFields: {} },
+        { $project: { 0 | 1 } },
+        { $limit: 10 },
+      },
+    ])
+
+mongoose-middlewares
+    Document Middleware | Hooks [ 'save' 'validate' ] //events<->hooks
+    Query Middleware | Hooks [ 'find' 'findOne' ]
 
 process.argv
 // eslint-disable-next-line no-console
