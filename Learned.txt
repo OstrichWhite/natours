@@ -86,6 +86,10 @@ mongoose-model
 mongoose-middlewares
     Document Middleware | Hooks [ 'save' 'validate' ] //events<->hooks
     Query Middleware | Hooks [ 'find' 'findOne' ]
+    Aggregate Middleware | Hook 'aggregate'
+
+mongoose-validators
+    required, min, max, minlength, maxlength, enum:{}, validate:function(value)->true/false
 
 process.argv
 // eslint-disable-next-line no-console
