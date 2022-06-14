@@ -91,5 +91,9 @@ mongoose-middlewares
 mongoose-validators
     required, min, max, minlength, maxlength, enum:{}, validate:function(value)->true/false
 
+Error Handling
+1. create global error handler middleware      app.use((err, req, res, next) => {})
+2. Unhandled route      app.all('*', (req, res, next) => {}
+
 process.argv
 // eslint-disable-next-line no-console
