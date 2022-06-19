@@ -8,6 +8,7 @@ res.status(201)  //created
 res.status(204)  //No Content //for Delete
 res.status(500)  //Internal Server Error
 res.status(400)  //Bad Request
+res.status(401)  //Unauthorized
 
 req.body;
 req.params;
@@ -94,6 +95,12 @@ mongoose-validators
 Error Handling
 1. create global error handler middleware      app.use((err, req, res, next) => {})
 2. Unhandled route      app.all('*', (req, res, next) => {}
+
+jsonwebtoken   sign,verify
+bcrypt -> password
+     async functions  bcrypt.hash() bcrypt.compare()
+
+instance method of a model schemaObj.method.functionname
 
 process.argv
 // eslint-disable-next-line no-console
