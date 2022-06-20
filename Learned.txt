@@ -13,6 +13,7 @@ res.status(401)  //Unauthorized
 req.body;
 req.params;
 req.query;
+req.headers;
 
 /api/v1/tours
 /api/v1/tours/:id
