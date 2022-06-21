@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
   photo: String,
+  role: {
+    type: String,
+    enum: ['user', 'guide', 'lead-guide', 'admin'],
+    default: 'user',
+  },
   password: {
     type: String,
     required: [true, 'Please prove a password'],
@@ -32,7 +37,6 @@ const userSchema = new mongoose.Schema({
       message: 'Password must be same',
     },
   },
-  passwordChangedAt: Date,
 });
 
 userSchema.pre('save', async function (next) {
