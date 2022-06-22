@@ -15,6 +15,7 @@ req.body;
 req.params;
 req.query;
 req.headers;
+req.protocol;
 
 /api/v1/tours
 /api/v1/tours/:id
@@ -66,6 +67,7 @@ new mongoose.Schema({ field|property:{
 schemaObj.virtual('derivedProperty').get(func())
 schemaObj.pre('event',func())  //event<->hooks
 schemaObj.post('event',func())
+schemaObj.methods.functionName = func()
 
 mongoose-query
     .sort()
@@ -106,3 +108,5 @@ instance method of a model schemaObj.method.functionname
 
 process.argv
 // eslint-disable-next-line no-console
+
+nodemailer -> mailtrap to test the email 
