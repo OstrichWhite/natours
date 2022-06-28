@@ -51,16 +51,18 @@ Tour
     .find().where().equals().where().lte();
     .findOne({_id: id_data})
     .findById({id of document});
+    .findById({id of document}).populate();
     .findByIdAndUpdate({id of document},{updated body of document});
     .findByIdAndDelete({id of document});
 
 new mongoose.Schema({ field|property:{
-    type: Date
+    type: Date | Array | mongoose.Schema.objectId
     required: [true, message] 
     unique: 
     default: Date.now()
     select:
     trim:
+    ref:
 }},{
     toJSON: {virtuals: true}
     toObject: {virtuals: true}
