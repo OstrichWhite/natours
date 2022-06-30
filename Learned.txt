@@ -23,7 +23,7 @@ req.protocol;
 /api/v1/tours/:id/:number?
 
 express.json();
-express.Router() / .route('/').get().post().patch().delete()
+express.Router({ mergeParams: true }) / .route('/').get().post().patch().delete()
 express.static('root folder path for static filess')
 
 ${__dirname}, ${__filename}
