@@ -5,6 +5,7 @@ const {
   getUser,
   updateUser,
   deleteUser,
+  getMe,
   updateMe,
   deleteMe,
 } = require('../controllers/userController');
@@ -20,6 +21,7 @@ const {
 
 const router = express.Router();
 
+router.get('/me', protect, getMe, getUser);
 router.post('/signup', signUp);
 router.post('/login', login);
 router.post('/forgotPassword', forgotPassword);
