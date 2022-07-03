@@ -2,6 +2,8 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Tour = require('../../models/tourModel');
+const Review = require('../../models/reviewModel');
+const User = require('../../models/userModel');
 
 dotenv.config({ path: './config.env' });
 
@@ -15,30 +17,39 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log('DB Connected Succesfully'))
-  .catch((err) => console.log('something happened to Database', err));
+  .then(() => console.log('DB connection successful!'));
 
-const tours = fs.readFileSync(`${__dirname}/tours.json`, 'utf-8');
-const data = JSON.parse(tours);
+// READ JSON FILE
+const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
+const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+const reviews = JSON.parse(
+  fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8')
+);
 
+// IMPORT DATA INTO DB
 const importData = async () => {
   try {
-    await Tour.create(data);
-    console.log('Data Imported Successfully');
-    process.exit();
+    await Tour.create(tours);
+    await User.create(users, { validateBeforeSave: false });
+    await Review.create(reviews);
+    console.log('Data successfully loaded!');
   } catch (err) {
     console.log(err);
   }
+  process.exit();
 };
 
+// DELETE ALL DATA FROM DB
 const deleteData = async () => {
   try {
     await Tour.deleteMany();
-    console.log('Data Deleted Successfully');
-    process.exit();
+    await User.deleteMany();
+    await Review.deleteMany();
+    console.log('Data successfully deleted!');
   } catch (err) {
     console.log(err);
   }
+  process.exit();
 };
 
 if (process.argv[2] === '--import') {
@@ -46,4 +57,3 @@ if (process.argv[2] === '--import') {
 } else if (process.argv[2] === '--delete') {
   deleteData();
 }
-// console.log(process.argv);

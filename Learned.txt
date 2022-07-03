@@ -70,7 +70,8 @@ new mongoose.Schema({ field|property:{
 schemaObj.virtual('derivedProperty').get(func())
 schemaObj.pre('event',func())  //event<->hooks
 schemaObj.post('event',func())
-schemaObj.methods.functionName = func()
+schemaObj.methods.functionName = func() //Instance method
+schemaObj.statics.functionName = func() //Static method
 
 mongoose-query
     .sort()
